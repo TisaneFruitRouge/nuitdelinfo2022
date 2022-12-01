@@ -20,4 +20,10 @@ div {
 
     border-radius: 99px;
 }
+
+div:hover {
+    box-shadow: 6px 5px 6px -2px rgba(248,230,230,0.54);
+    -webkit-box-shadow: 6px 5px 6px -2px rgba(248,230,230,0.54);
+    -moz-box-shadow: 6px 5px 6px -2px rgba(248,230,230,0.54);
+}
 </style>

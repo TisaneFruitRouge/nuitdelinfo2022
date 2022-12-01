@@ -19,5 +19,14 @@ div {
     align-items: center;
 
     border-radius: 99px;
+
+    transition-duration: 300ms;
 }
+
+div:hover {
+    box-shadow: 6px 5px 6px -2px rgba(177,43,13,0.54);
+    -webkit-box-shadow: 6px 5px 6px -2px rgba(177,43,13,0.54);
+    -moz-box-shadow: 6px 5px 6px -2px rgba(177,43,13,0.54);
+}
+
 </style>
