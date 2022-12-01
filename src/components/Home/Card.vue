@@ -101,4 +101,4 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag(e.clientX, e.clien
 
   background-color: #f8e6e6;
 }
-
+</style>
