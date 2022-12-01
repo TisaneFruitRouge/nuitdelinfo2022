@@ -18,13 +18,13 @@
         </div>
 
         <div id="buttons">
-            <accept-button />
-            <reject-button />
+            <AcceptButton />
+            <RejectButton />
         </div>
     </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
 </script>
@@ -107,8 +107,15 @@ main {
 }
 
 #buttons {
+
+    width: 100vw;
+
     position: fixed;
-    top: 90vh;
+    top: 85vh;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
 }
 
 
