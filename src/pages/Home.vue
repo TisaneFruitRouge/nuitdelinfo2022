@@ -5,7 +5,6 @@
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
-
             <card />
         </div>
 
@@ -20,8 +19,8 @@
         </div>
 
         <div id="buttons">
-            <accept-button />
-            <reject-button />
+            <AcceptButton />
+            <RejectButton />
         </div>
     </main>
 </template>
@@ -29,7 +28,9 @@
 <script setup lang="ts">
 import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
-import Card from "../components/Home/Card.vue";
+
+import Card from "../components/Home/Card.vue"
+
 </script>
 
 <style scoped>
@@ -75,7 +76,7 @@ main {
     transform: rotateZ(-5deg) translateY(-20px);
 }
 
-.background-center-card:last-child {
+.background-center-card:nth-child(4) {
     background-color: #f8e6e6;
 }
 
@@ -110,8 +111,15 @@ main {
 }
 
 #buttons {
+
+    width: 100vw;
+
     position: fixed;
-    top: 90vh;
+    top: 85vh;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
 }
 
 
