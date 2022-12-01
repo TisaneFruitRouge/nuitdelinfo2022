@@ -16,10 +16,17 @@
             <div class="background-card background-bottom-card"></div>
             <div class="background-card background-bottom-card"></div>
         </div>
+
+        <div id="buttons">
+            <accept-button />
+            <reject-button />
+        </div>
     </main>
 </template>
 
 <script lang="ts">
+import AcceptButton from "../components/Home/AcceptButton.vue";
+import RejectButton from "../components/Home/RejectButton.vue";
 </script>
 
 <style scoped>
@@ -27,6 +34,8 @@ main {
     background-color: #89A094;
     width: 100vw;
     height: 100vh;
+
+    overflow: hidden;
 }
 
 #background-center-cards, #background-top-cards, #background-bottom-cards  {
@@ -95,6 +104,11 @@ main {
 .background-bottom-card:first-child {
     background-color: #b12b02;
     transform: rotateZ(-18deg) translateY(4vh) translateX(10vw);
+}
+
+#buttons {
+    position: fixed;
+    top: 90vh;
 }
 
 
