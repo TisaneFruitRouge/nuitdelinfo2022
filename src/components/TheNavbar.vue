@@ -33,6 +33,8 @@ const toggleModal = () => {
         background-color: black;
         opacity: 0.3;
         display: none;
+
+        z-index: 10;
     }
 
     #overlay.active {
@@ -44,7 +46,7 @@ const toggleModal = () => {
         top: 5vh;
         left: 5vh;
 
-        z-index: 10;
+        z-index: 20;
 
         display: flex;
         flex-direction: column;
@@ -83,6 +85,8 @@ const toggleModal = () => {
         height: 100vh;
 
         transform: translateX(-500px);
+
+        z-index: 10;
     }
 
     #navbar.active {

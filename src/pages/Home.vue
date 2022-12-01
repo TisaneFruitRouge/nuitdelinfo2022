@@ -5,7 +5,7 @@
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
-            <card />
+            <card :name="'Sweet Banana'" :description="'fck me'" :age="21" :image="''"/>
         </div>
 
         <div id="background-top-cards">
@@ -29,7 +29,7 @@
 import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
 
-import Card from "../components/Home/Card.vue"
+import Card from "../components/Home/Card.vue";
 
 </script>
 
