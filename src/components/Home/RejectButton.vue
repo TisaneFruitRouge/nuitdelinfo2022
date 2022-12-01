@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="Close" alt="checkmark"></img>
+        <img :src="Close" alt="checkmark"/>
     </div>
 </template>
 

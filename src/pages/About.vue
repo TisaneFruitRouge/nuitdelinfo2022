@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Test title="zizi""/>
+        <Test title="zizi"/>
     </div>
 </template>
 
