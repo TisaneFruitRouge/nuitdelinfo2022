@@ -1,6 +1,10 @@
 <template>
     <div class="main">
     <main>
+
+        <popup-win v-if="STDValue==='DODGE'" :click="hideModal" :explication="explication"></popup-win>
+        <popup-lose v-else-if="STDValue==='STD'" :click="hideModal" :explication="explication"></popup-lose>
+
         <div id="background-center-cards">
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
@@ -10,9 +14,9 @@
                 v-for="(profile, index) in profiles" 
                 :name="profile.name" 
                 :description="profile.description" 
-                :image="''"
                 :matched="profile.matched"
-                :swiped="profile.swiped "
+                :swiped="profile.swiped"
+                :photo="profile.photo"
                 :key="index"/>
         </div>
 
@@ -27,8 +31,8 @@
         </div>
 
         <div id="buttons">
-            <AcceptButton :on-click="matchOk"/>
-            <RejectButton :on-click="matchNotOk"/>
+            <AcceptButton :on-click="()=>match(true)"/>
+            <RejectButton :on-click="()=>match(false)"/>
         </div>
 
     </main>
@@ -41,7 +45,7 @@
 import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
 import Card from "../components/Home/Card.vue";
-import { reactive } from "vue";
+import { ref, watch } from "vue";
 import {storeToRefs} from 'pinia';
 import PopupWin from "../components/Home/PopupWin.vue";
 import PopupLose from "../components/Home/PopupLose.vue";
@@ -51,15 +55,18 @@ import { proxyPrint } from "../utils";
 
 const store = useProfileStore();
 
-const { profiles, profilesSwiped } = storeToRefs(store);
-const { matchProfile } = store;
-
-const matchOk = () => {
-    matchProfile(true);
+const hideModal = () => {
+    STDValue.value = "";
 }
 
-const matchNotOk = () => {
-    matchProfile(false);
+const { profiles, profilesSwiped } = storeToRefs(store);
+const { matchProfile } = store;
+const STDValue = ref("");
+const explication = ref("");
+
+const match = (matched: boolean) => {
+    const STD_VALUE = matchProfile(matched);
+    [STDValue.value, explication.value] = STD_VALUE || "";
 }
 
 </script>

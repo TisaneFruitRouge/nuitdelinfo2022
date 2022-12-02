@@ -24,6 +24,20 @@ export const useProfileStore = defineStore('profiles', {
             const hasSTD = this.profiles[this.profilesSwiped].answer;
 
             this.profilesSwiped += 1;
+        
+            
+            if (matched && hasSTD) {
+                this.STDsContracted++;
+                return ["STD",this.profiles[this.profilesSwiped].explication];
+            } else if (matched && !hasSTD) {
+                this.timesGottenLaidSafely++;
+                return ["SEX",this.profiles[this.profilesSwiped].explication];
+            } else if (!matched && !hasSTD) {
+                return ["",""];
+            } else {
+                this.STDsDodged++;
+                return ["DODGE",this.profiles[this.profilesSwiped].explication];
+            }
         }
     }
 });

@@ -3,7 +3,7 @@
                   ${isOpen ? 'open' : ''} 
                   ${swiped ? (matched ? 'right' : 'left') : ''}
                   `">
-        <img :src="''" alt="banana" @click="toggleProfile">
+        <img :src="imageUrl" alt="photo" @click="toggleProfile">
         <h2>{{name}}</h2>
         <p>{{description}}</p>
     </div>
@@ -15,14 +15,16 @@ import { toRefs, ref } from 'vue';
 interface IProps {
     name: string;
     description: string;
-    image: string;
+    photo: string;
     matched: boolean;
     swiped: boolean;
 }
 
 const props = defineProps<IProps>()
-const {name, description, image, matched, swiped} = toRefs(props);
+const {name, description, photo, matched, swiped} = toRefs(props);
 const isOpen = ref(false);
+
+const imageUrl = new URL(`../../assets/photos/${photo.value}`, import.meta.url).href
 
 const toggleProfile = () => {
     isOpen.value = !isOpen.value;

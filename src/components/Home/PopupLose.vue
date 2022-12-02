@@ -1,52 +1,65 @@
 <template>
-  <div class ="popup">
-    <div class="popup-bg">
-    </div>
-    <div class="popup-container">>
-      <div class="popup-box">
-        <h1> HOLD UP!</h1>
-        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD without informing you.</div>
-          <h1> WHAT COULD I HAVE KNOWN?</h1>
-        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD without informing you.</div>
-        <a href="www.google.com">Click here to learn more about STDs.</a>
-        <button class="understand-button">I UNDERSTAND</button>
+  <Teleport to="body">
+    <div class="popup">
+      <div class="popup-bg">
+      </div>
+      <div class="popup-container">>
+        <div class="popup-box">
+          <h1> HOLD UP!</h1>
+          <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD without informing you.</div>
+            <h1> WHAT COULD I HAVE KNOWN?</h1>
+          <div class="popup-text">{{explication}}</div>
+          <a href="www.google.com">Click here to learn more about STDs.</a>
+          <button class="understand-button" @click="click">I UNDERSTAND</button>
+        </div>
       </div>
     </div>
-  </div>
+</Teleport>
 </template>
 
 <script setup lang="ts">
-import Check from '../../assets/check.png';
+import { toRefs } from 'vue';
+
+const props = defineProps<{
+  click: any;
+  explication: string;
+}>()
+
+const {click, explication} = toRefs(props);
+
 </script>
 
 <style scoped>
 
 .popup {
   z-index: 1000;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 .popup-bg {
-  background-color: black;
   position: absolute;
-  height: 100%;
-  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
   opacity: 40%;
 }
 
 .popup-container {
-  position: absolute;
   height: 100%;
   display: flex;
-  left: 5%;
-  right: 5%;
   align-items: center;
 }
 
 .popup-box {
+  z-index: 20;
   border-radius: 2em;
   background-color: #f8e6e6;
   opacity: 100%;

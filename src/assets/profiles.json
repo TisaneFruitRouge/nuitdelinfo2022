@@ -1,169 +1,148 @@
 {
     "profils": [
         {
-            "name": "Bobby good-looking",
+            "name": "Dirty Dickie",
             "shape":"Nice looking, shaved",
             "description": "I am a gentleman in bed and I shave and take a shower everyday ",
             "explication": "Self hygiene has nothing to do with AIDS but it is always a nice thing to have! The dick is not wearing a condom and has not indicated that it will wear one, so AIDS might transmit",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":false,
+            "disease" : "AIDS",
+            "answer": false,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p1.png"
         },
         {
-            "name": "Leonardo di sexio",
+            "name": "Elon Nut",
             "shape":"Normal looking, with a condom on his head",
             "description": "I am an animal in bed",
             "explication": "It’s wearing a condom",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "No"
-            },
-            "answer":true,
+            "disease" : null,
+            "answer": true,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p2.png"
         },
         {
-            "name": "No luck Luc",
+            "name": "Lord Dickinson",
             "shape":"Normal looking with a condom",
-            "description": "I have AIDS but I’m under treatment (TO VERIFY)",
+            "description": "I have AIDS but I’m under treatment",
             "explication": "Someone under treatment can have sex under circumstances (MORE INFO)",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "Yes"
-            },
-            "answer":true,
+            "disease" : null,
+            "answer": true,
             "difficulty" : 2,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p3.png"
         },
         {
-            "name": "Dirty Dickie",
+            "name": "Peter Cumzalot",
             "shape":"Dirty looking with mustache, with hairs",
             "description": "I take a shower once a year but I have vaccination against x,y,z",
             "explication": "Self hygiene has nothing to do with AIDS but it is always a nice thing to have! The dick is not wearing a condom and has not indicated that it will war one No vaccination exist for AIDS, but it’s always nice to have them",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":false,
+            "disease" : "AIDS",
+            "answer": false,
             "difficulty" : 1,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p4.png"
         },
         {
-            "name":"Joe Joegan",
+            "name": "Thin Boy",
             "shape":"Normal looking",
             "description": "I sleep with 3 people per day",
             "explication": "Sleeping with multiple people will increase the transmission of AIDS,No condoms is used",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":false,
+            "disease" : "AIDS",
+            "answer": false,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p5.png"
         },
         {
-            "name": "ADDIE McCucky",
+            "name": "Uncle Reamus",
             "shape":"Normal",
             "description": "I have AIDS and I use protection",
             "explication": "You can have sex with someone with AIDS but with protection and who is in treatment (verify with doctor)",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "Yes"
-            },
+            "disease" : null,
             "answer":true,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "p6.png"
         },
         {
-            "name": "Elon bustanut",
+            "name": "Chatney Spears",
             "shape":"Nice looking, shaved",
             "description": "I go do it with a lot of guys but I am clean",
             "explication": "Having sex with multiple partners increase risk of having AIDS.No mention of wearing condoms",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":false,
+            "disease" : "AIDS",
+            "answer": false,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "v1.png"
         },
         {
-            "name": "Jeff baisos",
+            "name": "Mysterious Pussy",
             "shape":"Nice looking, shaved",
             "description": "I only do it with condoms",
             "explication": "Wears a condom",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":true,
+            "disease" : null,
+            "answer": true,
             "difficulty" : 0,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "v2.png"
         },
         {
-            "name": "Mama la bite",
+            "name": "Lady Boobsalot",
             "shape":"Hairy, dots and possible diseases",
             "description": "I only suck dicks",
             "explication": "AIDS is only transmitted by penetration, HOWEVER other diseases could be transmitted using mouth/other sexual ways",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":true,
+            "diseases" : "AIDS",
+            "answer": false,
             "difficulty" : 3,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "v3.png"
         },
         {
-            "name": "Thiccie Richy",
+            "name": "Missy Pussy",
             "shape":"A nice juicy butt",
             "description": "Penetration only from the rear",
             "explication": "AIDS is transmitted from any kind of penetration",
-            "diseases" : {
-                "HPV":"No",
-                "syphilis":"No",
-                "AIDS" : "?"
-            },
-            "answer":false,
+            "diseases" : "AIDS",
+            "answer": false,
             "difficulty" : 2,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	   "photo": "v4.png"
         },
         {
-            "name": "Anon, wilder of the cum",
-            "shape":"No photo",
-            "description": "I use protection. I love sucking penis and pussy",
-            "explication": "HPV can be transmitted even when using protection",
-            "diseases" : {
-                "HPV":"?",
-                "syphilis":"No",
-                "AIDS" : "No"
-            },
-            "answer":false,
+            "name": "Pamela Handerson",
+            "shape":"Normal",
+            "description": "I rarely have sex. Only with protection",
+            "explication": "HPV could be transmitted even when using protection",
+            "diseases" : "HPV",
+            "answer": false,
             "difficulty" : 2,
             "swiped": false,
-            "matched": false
+            "matched": false,
+	        "photo": "v5.png"
+        },
+        {
+            "name": "Pussyla",
+            "shape":"Normal",
+            "description": "I love to party but with protection. I have syphilis so you should use good protection",
+            "explication": "With good protection syphilis can be avoided. The woman is clear about her disease. There is however a risk but with protection it can be avoided",
+            "diseases" : "Syphilis",
+            "answer": true,
+            "difficulty" : 3,
+            "swiped": false,
+            "matched": false,
+	   "photo": "v6.png"
         }
     ]
 }

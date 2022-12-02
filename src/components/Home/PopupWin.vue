@@ -1,30 +1,43 @@
 <template>
-  <div class ="popup">
-    <div class="popup-bg">
-    </div>
-    <div class="popup-container">>
-      <div class="popup-box">
-        <h1> YOU'RE AMAZING!</h1>
-        <div class="popup-text">You were able to correctly identify all individuals that have STDs. If you'd still like to learn about Sexually Transmitted Diseases and how you can avoid them, you can</div>
-        <a href="www.google.com">Click here to learn more.</a>
-        <button class="understand-button">I UNDERSTAND</button>
+  <Teleport to="body">  
+    <div class="popup">
+      <div class="popup-bg">
+      </div>
+      <div class="popup-container">>
+        <div class="popup-box">
+          <h1> YOU'RE AMAZING!</h1>
+          <div class="popup-text">You were able to correctly identify all individuals that have STDs. If you'd still like to learn about Sexually Transmitted Diseases and how you can avoid them, you can</div>
+          <a href="www.google.com">Click here to learn more.</a>
+          <div>{{explication}}</div>
+          <button class="understand-button" @click="click">I UNDERSTAND</button>
+        </div>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
-import Check from '../../assets/check.png';
+import { toRefs } from 'vue';
+
+const props = defineProps<{
+  click: any;
+  explication: string;
+}>()
+
+const {click, explication} = toRefs(props);
+
 </script>
 
 <style scoped>
 
 .popup {
   z-index: 1000;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 .popup-bg {
