@@ -30,7 +30,6 @@
             <AcceptButton :on-click="matchOk"/>
             <RejectButton :on-click="matchNotOk"/>
         </div>
-      <popup/>
 
     </main>
 </div>
@@ -44,7 +43,8 @@ import RejectButton from "../components/Home/RejectButton.vue";
 import Card from "../components/Home/Card.vue";
 import { reactive } from "vue";
 import {storeToRefs} from 'pinia';
-import Popup from "../components/Home/Popup.vue";
+import Popup from "../components/Home/PopupWin.vue";
+import Popup from "../components/Home/PopupLose.vue";
 
 import { useProfileStore } from '../stores/profiles';
 import { proxyPrint } from "../utils";

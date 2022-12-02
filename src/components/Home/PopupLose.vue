@@ -5,9 +5,9 @@
     <div class="popup-container">>
       <div class="popup-box">
         <h1> HOLD UP!</h1>
-        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD witjout informing you.</div>
+        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD without informing you.</div>
           <h1> WHAT COULD I HAVE KNOWN?</h1>
-        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD witjout informing you.</div>
+        <div class="popup-text">Unfortunately, you guessed wrong ! The person you matched with had an STD without informing you.</div>
         <a href="www.google.com">Click here to learn more about STDs.</a>
         <button class="understand-button">I UNDERSTAND</button>
       </div>
