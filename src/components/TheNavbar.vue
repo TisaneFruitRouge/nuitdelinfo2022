@@ -9,10 +9,10 @@
 
         <div id="navbar" :class="isOpen ? 'active' : ''">
             <div class="navbarIcones" >
-                <router-link :to="SettingsPage? '/':'/settings' "  @click="loadSetting">
+                <router-link to="/settings"  @click="loadSetting">
                 
-                <img v-if="!SettingsPage" id="settingsIcone" :src="settingIcone" alt="checkmark"> 
-                <div v-if="!SettingsPage" class="IconeLabel">Settings </div>
+                <img id="settingsIcone" :src="settingIcone" alt="checkmark"> 
+                <div class="IconeLabel">Settings </div>
 
             </router-link>
             </div>
