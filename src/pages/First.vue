@@ -80,7 +80,6 @@ const StartGame = () => {
 
 main {
     background-color: #89A094;
-    max-width: 450px;
     margin: auto;
     height: 100vh;
 
@@ -97,6 +96,7 @@ main {
     border-radius: 30px;
     top: 17%;
     left: 10%;
+    max-width: 350px;
 }
 
 h1 {

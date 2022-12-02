@@ -75,7 +75,10 @@ main {
     margin: auto;
     height: 100vh;
 
-    overflow: hidden;
+}
+
+.main {
+  overflow: hidden;
 }
 
 
