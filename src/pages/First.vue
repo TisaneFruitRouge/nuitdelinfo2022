@@ -22,23 +22,22 @@
         <h1> CREATE YOUR <br> STD PROFILE </h1>
         <form method="post">
             <div class="form_items">
-            <input v-value="Username"  type="text" id="username" name="username" value="" placeholder="Name"/>
+            <input v-model="Username"  type="text" id="username" name="username" placeholder="Name"/>
                     
-            <select v-value="Gender" name="identity">
-                <option value=""> Gender </option>
+            <select v-model="Gender" name="identity">
+                <option value="" disabled> Gender </option>
                 <option value="female"> Female </option>
                 <option value="male"> Male </option>
                 <option value="other"> Other </option>
             </select>
 
-            <select v-value="Loooking" name="genders">
-                <option value=""> Who am I looking for ? </option>
+            <select v-model="Looking" name="genders">
+                <option value="" disabled> Who am I looking for ? </option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="both">Male and Female</option>
                 <option value="other">Other</option>
-            </select>
-            <label> {{erreur}}</label>
+            </select>   
             </div>
 
                 
@@ -53,22 +52,24 @@
 </template>
 
 <script setup lang="ts">
+
 import {useRouter} from 'vue-router'
-let Username ="";
-let Gender="Gender";
-let Loooking ="Who am I looking for ?";
-let erreur ="";
+import {ref} from 'vue';
+
+let Username = ref("");
+let Gender = ref("female");
+let Looking =ref("male");
 
 const navigate = useRouter();
 
 
 const StartGame = () => {
-    if(Username!=null && Gender != null &&  Loooking != null ){
+    if(Username.value !== "" && Gender.value !== "" &&  Looking.value !== "" ){
         //verifer les valeur des champs mes flemme
-        localStorage.setItem("name",Username);
-        localStorage.setItem("Gender",Gender);
-        localStorage.setItem("Looking",Loooking);
-        navigate.push('/')
+        localStorage.setItem("name",Username.value);
+        localStorage.setItem("Gender",Gender.value);
+        localStorage.setItem("Looking",Looking.value);
+        navigate.push('/');
     }
 }
 
@@ -101,6 +102,7 @@ main {
 h1 {
     text-align: center;
     font-weight: lighter;
+    line-height: 1.25em;
     font-size: 1.8em;
 }
 
@@ -108,7 +110,8 @@ form {
     font-family: 'Inter';
     display:flex;
     flex-direction: column;
-    margin: 0 10%;
+    justify-content: center;
+    padding: 10%;
     height: 100%;
 }
 
@@ -124,6 +127,7 @@ input, select {
 .form_items {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     height: 100%;
 }
 

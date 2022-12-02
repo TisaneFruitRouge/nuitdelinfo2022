@@ -20,6 +20,8 @@
                 <select v-model="selectedLooking" @change="onChangeLooking()" placeholder="Gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
+                    <option value="female-and-male">Male and female</option>
+                    <option value="other">Other</option>
                 </select>
                 <router-link to="/" id="button">
                     BACK TO GAME
