@@ -19,6 +19,8 @@ div {
     align-items: center;
 
     border-radius: 99px;
+
+    transition-duration: 300ms;
 }
 
 div:hover {
