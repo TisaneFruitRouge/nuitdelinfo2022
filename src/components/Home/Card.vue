@@ -106,7 +106,7 @@ function begin_drag (x:number, y:number) {
   is_dragging = true;
 }
 
-function end_drag(x:number, y:number) {
+function end_drag() {
   is_dragging = false;
 }
 
@@ -125,11 +125,11 @@ function drag (x:number, y:number) {
 // Register events
 addEventListener('touchstart', function(e:TouchEvent) { begin_drag(e.touches[0].clientX, e.touches[0].clientY)})
 addEventListener('touchmove', function(e:TouchEvent) { drag(e.touches[0].clientX, e.touches[0].clientY)})
-addEventListener('touchend', function(e:TouchEvent) { end_drag(e.touches[0].clientX, e.touches[0].clientY)})
+addEventListener('touchend', function(e:TouchEvent) { end_drag()})
 
 addEventListener('mousedown', function(e:MouseEvent) { begin_drag(e.clientX, e.clientY)})
 addEventListener('mousemove', function(e:MouseEvent) { drag(e.clientX, e.clientY)})
-addEventListener('mouseup', function(e:MouseEvent) { end_drag(e.clientX, e.clientY)})
+addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
 </script>
 
 <style scoped>
