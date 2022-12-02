@@ -16,7 +16,6 @@ let card_pos: {
   y : number,
 } = {x: 0, y: 0};
 
-
 let is_dragging: boolean = false;
 
 function lerp (start:number, end:number, amt:number) {
@@ -24,6 +23,26 @@ function lerp (start:number, end:number, amt:number) {
 }
 let lastTick = performance.now()
 
+function reset() {
+  drag_start_pos.x = 0;
+  drag_start_pos.y = 0;
+  card_pos.x = 0;
+  card_pos.y = 0;
+  is_dragging = false;
+
+  // RESET
+
+}
+
+function swipe(match:boolean) {
+  console.log("match : ", match)
+
+  // Match
+
+  reset();
+}
+
+// Tick
 function update(new_tick: number) {
 
   const delta_time = (new_tick - lastTick) / 1000.0
@@ -38,7 +57,6 @@ function update(new_tick: number) {
   let window_width = window.outerWidth
 
   if (!is_dragging) {
-
     if (card_pos.x < -window_width / 4) {
       card_pos.x = lerp(card_pos.x, -window_width * 2, delta_time * 5)
     }
@@ -49,19 +67,28 @@ function update(new_tick: number) {
       card_pos.x = lerp(card_pos.x, 0, delta_time * 5)
     }
     card_pos.y = lerp(card_pos.y, 0, delta_time * 5)
+
+    if (card_pos.x < -window_width * 1.75) {
+      swipe(false);
+    }
+    else if (card_pos.x > window_width * 1.75) {
+      swipe(true);
+    }
   }
 
   if (background) {
-    background.style.left = card_pos.x + 'px'
-    background.style.top = card_pos.y + 'px'
+
+    background.style.left = `calc(7.5vw + ${card_pos.x}px)`
+    background.style.top = `calc(20vw + ${card_pos.y}px)`
     background.style.rotate = card_pos.x / 20 + 'deg'
   }
 
   window.requestAnimationFrame(update);
 }
-
-
 window.requestAnimationFrame(update);
+
+
+// handle events
 
 function begin_drag (x:number, y:number) {
   drag_start_pos.x = x;
@@ -85,6 +112,7 @@ function drag (x:number, y:number) {
   card_pos.y += delta_y;
 }
 
+// Register events
 addEventListener('touchstart', function(e:TouchEvent) { begin_drag(e.touches[0].clientX, e.touches[0].clientY)})
 addEventListener('touchmove', function(e:TouchEvent) { drag(e.touches[0].clientX, e.touches[0].clientY)})
 addEventListener('touchend', function(e:TouchEvent) { end_drag(e.touches[0].clientX, e.touches[0].clientY)})
