@@ -1,12 +1,12 @@
 <template>
     <div class="main">
     <main>
-        <div id="background-center-cards">
+      <div id="background-center-cards">
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
-            <card :name="'Sweet Banana'" :description="'fck me'" :age="21" :image="''" @on-match="on_match"/>
+            <!-- <card :name="'Sweet Banana'" :description="'fck me'" :age="21" :image="''" @on-match="on_match"/> -->
         </div>
 
         <div id="background-top-cards">
@@ -23,7 +23,7 @@
             <AcceptButton />
             <RejectButton />
         </div>
-
+      <popup/>
     </main>
 </div>
 
@@ -34,6 +34,7 @@ import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
 
 import Card from "../components/Home/Card.vue";
+import Popup from "../components/Home/Popup.vue";
 
 
 function on_match(value: boolean) {
