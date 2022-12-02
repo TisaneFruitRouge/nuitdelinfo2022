@@ -1,30 +1,29 @@
 <template>
-   <main>
+<main>
     <div id="background-center-cards">
-            <div class="background-card background-center-card"></div>
-            <div class="background-card background-center-card"></div>
-            <div class="background-card background-center-card"></div>
-            <div class="background-card background-center-card"></div>
-            <div class="create_profile">
-        </div>
-        </div>
+        <div class="background-card background-center-card"></div>
+        <div class="background-card background-center-card"></div>
+        <div class="background-card background-center-card"></div>
+        <div class="background-card background-center-card"></div>
+        <div class="create_profile"></div>
+    </div>
 
-        <div id="background-top-cards">
-            <div class="background-card background-top-card"></div>
-            <div class="background-card background-top-card"></div>
-        </div>
+    <div id="background-top-cards">
+        <div class="background-card background-top-card"></div>
+        <div class="background-card background-top-card"></div>
+    </div>
 
-        <div id="background-bottom-cards">
-            <div class="background-card background-bottom-card"></div>
-            <div class="background-card background-bottom-card"></div>
-        </div>
-   </main>
-   <div class="create_profile">
+    <div id="background-bottom-cards">
+        <div class="background-card background-bottom-card"></div>
+        <div class="background-card background-bottom-card"></div>
+    </div>
+
+    <div class="create_profile">
         <h1> CREATE YOUR <br> STD PROFILE </h1>
         <form method="post">
             <div class="form_items">
             <input v-value="Username"  type="text" id="username" name="username" value="" placeholder="Name"/>
-                
+                    
             <select v-value="Gender" name="identity">
                 <option value=""> Gender </option>
                 <option value="female"> Female </option>
@@ -42,13 +41,14 @@
             <label> {{erreur}}</label>
             </div>
 
-            
-    
+                
+        
         </form>  
         <div @click="StartGame"  class="test_button">
-                <button  > START SWIPING </button>
-            </div> 
+            <button  > START SWIPING </button>
+        </div> 
     </div>
+</main>
 
 </template>
 
@@ -62,16 +62,14 @@ let erreur ="";
 const navigate = useRouter();
 
 
-const StartGame =() => {
-    if(Username!=null &&Gender!=null &&  Loooking!=null ){
+const StartGame = () => {
+    if(Username!=null && Gender != null &&  Loooking != null ){
         //verifer les valeur des champs mes flemme
         localStorage.setItem("name",Username);
         localStorage.setItem("Gender",Gender);
         localStorage.setItem("Looking",Loooking);
         navigate.push('/')
     }
-    console.log("yey");
-    
 }
 
 </script>

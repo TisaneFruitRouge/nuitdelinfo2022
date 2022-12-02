@@ -12,11 +12,8 @@
                 <router-link :to="SettingsPage? '/':'/settings' "  @click="loadSetting">
                 
                 <img v-if="!SettingsPage" id="settingsIcone" :src="settingIcone" alt="checkmark"> 
-                <div v-if="!SettingsPage" class="IconeLabel">
-                    Settings </div>
-                <img v-if="SettingsPage" id="settingsIcone" :src="backicone" alt="checkmark"> 
-                <div v-if="SettingsPage" class="IconeLabel">
-                    Back to game </div>
+                <div v-if="!SettingsPage" class="IconeLabel">Settings </div>
+
             </router-link>
             </div>
            
@@ -31,14 +28,13 @@ import backicone from '../assets/back.png';
 
 
 const isOpen = ref(false);
-const SettingsPage =ref(false);
+
 const toggleModal = () => {
     isOpen.value = !isOpen.value;
 }
 const loadSetting =() => {
 
     isOpen.value=!isOpen.value;
-    SettingsPage.value=!SettingsPage.value;
 }
 
 </script>

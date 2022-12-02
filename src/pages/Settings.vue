@@ -12,18 +12,18 @@
                 </h1>
                 <label>Gender</label>
                 <select @change="onChangeGender()" v-model="selectedGender" placeholder="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                 </select>   
                 <label>Who I'm looking for?</label>
                 <select v-model="selectedLooking" @change="onChangeLooking()" placeholder="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                 </select>
-                <button >
+                <router-link to="/" id="button">
                     BACK TO GAME
-                </button>              
+                </router-link>              
                 </form>
             </div>
 
@@ -37,67 +37,59 @@
             <div class="background-card background-bottom-card"></div>
             <div class="background-card background-bottom-card"></div>
         </div>
-
-        <div id="buttons">
-
-        </div>
     </main>
 </template>
 
 <script setup lang="ts">
 
-import AcceptButton from "../components/Home/AcceptButton.vue";
-import RejectButton from "../components/Home/RejectButton.vue";
+import {ref} from 'vue';
 
-import Card from "../components/Home/Card.vue";
+var selectedGender = ref(localStorage.getItem("gender")==null ? "female":localStorage.getItem("gender"));
+var selectedLooking = ref(localStorage.getItem("looking") == null ? "female" :localStorage.getItem("looking"));
 
-
-var selectedGender =localStorage.getItem("Gender")==null ? "Female":localStorage.getItem("Gender");
-var selectedLooking = localStorage.getItem("Looking") == null ? "Female" :localStorage.getItem("Looking");
-
-
-function on_match(value: boolean) {
-}
 
 const onChangeGender=() => {
-    console.log(selectedGender);
-    localStorage.setItem("Gender",selectedGender==null?"":selectedGender);
+    localStorage.setItem("gender", selectedGender.value === null ? "male" : selectedGender.value);
 }
 const onChangeLooking=() => {
-    console.log(selectedLooking);
-    localStorage.setItem("Looking",selectedGender==null?"":selectedGender);
+    localStorage.setItem("looking", selectedLooking.value === null ? "male" : selectedLooking.value);
 }
 </script>
 
 <style scoped>
 label{
     color: #B12B0D;
-    margin-left: 10%;
     position: relative;
-    top: 30px;
     opacity: 70%;
 }
-button{
-    margin-left: 25%;
-    width: 50%;
-    height: 40px;
-    margin-top: 25%;
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#button{
     border-radius: 20px;
-    border: none;
     color: white;
     background-color: #B12B0D;
+    padding: 5px 10px;
+    font-weight: semibold;
+    margin-top: 25px;
 }
 h1{
     text-align: center;
     margin-top: 50px;
+    line-height: 1.1em;
 }
 select{
     border: none;
     width: 85%;
     height: 35px;
     /* border-radius: 5px; */
-    margin-left: 7.5%;
-    margin-top: 20px;
     border-bottom: 2px solid gray;
     background-color: transparent;
 
@@ -181,18 +173,5 @@ main {
     background-color: #b12b02;
     transform: rotateZ(-18deg) translateY(4vh) translateX(10vw);
 }
-
-#buttons {
-
-    width: 100vw;
-
-    position: fixed;
-    top: 85vh;
-
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-}
-
 
 </style>

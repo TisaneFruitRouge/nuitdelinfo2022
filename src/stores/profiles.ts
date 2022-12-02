@@ -20,6 +20,9 @@ export const useProfileStore = defineStore('profiles', {
 
             this.profiles[this.profiles.length - this.profilesSwiped - 1].matched = matched;
             this.profiles[this.profiles.length - this.profilesSwiped - 1].swiped = true;
+
+            const hasSTD = this.profiles[this.profilesSwiped].answer;
+
             this.profilesSwiped += 1;
         }
     }
