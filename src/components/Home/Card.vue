@@ -16,6 +16,14 @@ interface IProps {
     age: number;
 }
 
+const props = defineProps<IProps>()
+const {name, description, image, age} = toRefs(props);
+const isOpen = ref(false);
+const toggleProfile = () => {
+  isOpen.value = !isOpen.value;
+};
+
+
 let background: HTMLElement;
 let drag_start_pos: {
   x: number,
@@ -34,23 +42,14 @@ function lerp (start:number, end:number, amt:number) {
 }
 let lastTick = performance.now()
 
-function reset() {
-  drag_start_pos.x = 0;
-  drag_start_pos.y = 0;
-  card_pos.x = 0;
-  card_pos.y = 0;
-  is_dragging = false;
-
-  // RESET
-
-}
+const emit = defineEmits(['on-match'])
 
 function swipe(match:boolean) {
-  console.log("match : ", match)
-
   // Match
-
-  reset();
+  // DESTROY
+  // Move to next
+  let card_container = document.getElementById("background-center-cards") as HTMLElement
+  emit('on-match', match, props)
 }
 
 // Tick
@@ -154,7 +153,7 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag(e.clientX, e.clien
     display: flex;
     flex-direction: column;
 
-    transition-duration: 300ms;
+    /*transition-duration: 300ms;*/
 }
 
 .background-card > img {
