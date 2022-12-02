@@ -43,8 +43,8 @@ import RejectButton from "../components/Home/RejectButton.vue";
 import Card from "../components/Home/Card.vue";
 import { reactive } from "vue";
 import {storeToRefs} from 'pinia';
-import Popup from "../components/Home/PopupWin.vue";
-import Popup from "../components/Home/PopupLose.vue";
+import PopupWin from "../components/Home/PopupWin.vue";
+import PopupLose from "../components/Home/PopupLose.vue";
 
 import { useProfileStore } from '../stores/profiles';
 import { proxyPrint } from "../utils";
