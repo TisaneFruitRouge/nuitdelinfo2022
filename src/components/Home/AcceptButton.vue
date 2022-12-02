@@ -1,11 +1,17 @@
 <template>
-    <div>
+    <div @click="props.onClick">
         <img :src="Check" alt="checkmark">
     </div>
 </template>
 
 <script setup lang="ts">
 import Check from '../../assets/check.png';
+
+const props = defineProps<{
+    onClick: any
+}>();
+
+
 </script>
 
 <style scoped>

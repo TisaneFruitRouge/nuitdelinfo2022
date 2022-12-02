@@ -1,135 +1,34 @@
 <template>
-    <div :class="isOpen ? 'background-card open' : 'background-card'">
-        <img :src={Banana} alt="banana" @click="toggleProfile">
-        <h2>{{name}} - {{age}} ans</h2>
+    <div :class="`background-card  
+                  ${isOpen ? 'open' : ''} 
+                  ${swiped ? (matched ? 'right' : 'left') : ''}
+                  `">
+        <img :src="''" alt="banana" @click="toggleProfile">
+        <h2>{{name}}</h2>
         <p>{{description}}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-
 import { toRefs, ref } from 'vue';
+
 interface IProps {
     name: string;
     description: string;
     image: string;
-    age: number;
+    matched: boolean;
+    swiped: boolean;
 }
 
 const props = defineProps<IProps>()
-const {name, description, image, age} = toRefs(props);
+const {name, description, image, matched, swiped} = toRefs(props);
 const isOpen = ref(false);
+
 const toggleProfile = () => {
-  isOpen.value = !isOpen.value;
+    isOpen.value = !isOpen.value;
 };
 
 
-let background: HTMLElement;
-let drag_start_pos: {
-  x: number,
-  y : number,
-} = {x: 0, y: 0};
-
-let card_pos: {
-  x: number,
-  y : number,
-} = {x: 0, y: 0};
-
-let is_dragging: boolean = false;
-
-function lerp (start:number, end:number, amt:number) {
-  return (1 - amt) * start + amt * end
-}
-let lastTick = performance.now()
-
-const emit = defineEmits(['on-match'])
-
-function swipe(match:boolean) {
-  // Match
-  // DESTROY
-  // Move to next
-  let card_container = document.getElementById("background-center-cards") as HTMLElement
-  emit('on-match', match, props)
-}
-
-// Tick
-function update(new_tick: number) {
-
-  const delta_time = (new_tick - lastTick) / 1000.0
-  lastTick = new_tick
-
-  if (!background) {
-    let card_container = document.getElementById("background-center-cards") as HTMLElement
-    background = card_container.children[4] as HTMLElement
-  }
-
-
-  let window_width = window.outerWidth
-
-  if (!is_dragging) {
-    if (card_pos.x < -window_width / 4) {
-      card_pos.x = lerp(card_pos.x, -window_width * 2, delta_time * 5)
-    }
-    else if (card_pos.x > window_width / 4) {
-      card_pos.x = lerp(card_pos.x, window_width * 2, delta_time * 5)
-    }
-    else {
-      card_pos.x = lerp(card_pos.x, 0, delta_time * 5)
-    }
-    card_pos.y = lerp(card_pos.y, 0, delta_time * 5)
-
-    if (card_pos.x < -window_width * 1.75) {
-      swipe(false);
-    }
-    else if (card_pos.x > window_width * 1.75) {
-      swipe(true);
-    }
-  }
-
-  if (background) {
-    if(!isOpen)
-      background.style.left = `calc(7.5% + ${card_pos.x}px)`
-    background.style.top = `calc(20vh + ${card_pos.y}px)`
-    background.style.rotate = card_pos.x / 20 + 'deg'
-  }
-
-  window.requestAnimationFrame(update);
-}
-window.requestAnimationFrame(update);
-
-
-// handle events
-
-function begin_drag (x:number, y:number) {
-  drag_start_pos.x = x;
-  drag_start_pos.y = y;
-  is_dragging = true;
-}
-
-function end_drag() {
-  is_dragging = false;
-}
-
-function drag (x:number, y:number) {
-  if (!is_dragging)
-    return;
-  let delta_x: number = x - drag_start_pos.x;
-  let delta_y: number = y - drag_start_pos.y;
-  drag_start_pos.x = x;
-  drag_start_pos.y = y;
-
-  card_pos.x += delta_x;
-  card_pos.y += delta_y;
-}
-
-// Register events
-addEventListener('touchstart', function(e:TouchEvent) { begin_drag(e.touches[0].clientX, e.touches[0].clientY)})
-addEventListener('touchmove', function(e:TouchEvent) { drag(e.touches[0].clientX, e.touches[0].clientY)})
-addEventListener('touchend', function(e:TouchEvent) { end_drag()})
-
-addEventListener('mousedown', function(e:MouseEvent) { begin_drag(e.clientX, e.clientY)})
-addEventListener('mousemove', function(e:MouseEvent) { drag(e.clientX, e.clientY)})
-addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
 </script>
 
 <style scoped>
@@ -153,7 +52,7 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
     display: flex;
     flex-direction: column;
 
-    /*transition-duration: 300ms;*/
+    transition-duration: 300ms;
 }
 
 .background-card > img {
@@ -193,6 +92,14 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
 
 .background-card.open > p {
     overflow: scroll;
+}
+
+.background-card.right {
+  transform: translateX(600px) rotate(45deg);
+}
+
+.background-card.left {
+  transform: translateX(-600px) rotate(-45deg);
 }
 
 </style>
