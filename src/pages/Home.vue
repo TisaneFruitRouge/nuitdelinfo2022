@@ -1,4 +1,5 @@
 <template>
+    <div class="main">
     <main>
         <div id="background-center-cards">
             <div class="background-card background-center-card"></div>
@@ -22,7 +23,10 @@
             <AcceptButton />
             <RejectButton />
         </div>
+
     </main>
+</div>
+
 </template>
 
 <script setup lang="ts">
@@ -40,13 +44,19 @@ function on_match(value: boolean) {
 </script>
 
 <style scoped>
+.main{
+    background-color: #89A094;
+
+}
 main {
     background-color: #89A094;
-    width: 100vw;
+    max-width: 450px;
+    margin: auto;
     height: 100vh;
 
     overflow: hidden;
 }
+
 
 #background-center-cards, #background-top-cards, #background-bottom-cards  {
     position: relative
@@ -55,7 +65,7 @@ main {
 .background-card {
     position: absolute;
     height: 60vh;
-    width: 85vw;
+    width: 85%;
     border-radius: 20px;
 
     max-width: 350px;
@@ -64,7 +74,7 @@ main {
 
 .background-center-card {
     top: 20vh;
-    left: 7.5vw;
+    left: 7.5%;
 }
 
 .background-center-card:first-child {
@@ -88,7 +98,7 @@ main {
 
 .background-top-card {
     top: -55vh;
-    right: -40vw;
+    right: -40%;
 }
 
 .background-top-card:first-child {
@@ -103,7 +113,7 @@ main {
 
 .background-bottom-card {
     bottom: -147vh;
-    left: -30vw;
+    left: -30%;
 }
 
 .background-bottom-card:last-child {
@@ -113,16 +123,15 @@ main {
 
 .background-bottom-card:first-child {
     background-color: #b12b02;
-    transform: rotateZ(-18deg) translateY(4vh) translateX(10vw);
+    transform: rotateZ(-18deg) translateY(4vh) translateX(10%);
 }
 
 #buttons {
 
-    width: 100vw;
-
+    width: 100%;
+    max-width: 450px;
     position: fixed;
     top: 85vh;
-
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;

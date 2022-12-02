@@ -7,22 +7,50 @@
             <div></div>
         </div>
 
-        <div id="navbar" :class="isOpen ? 'active' : ''"></div>
+        <div id="navbar" :class="isOpen ? 'active' : ''">
+            <div class="navbarIcones" >
+                <router-link :to="SettingsPage? '/':'/settings' "  @click="loadSetting">
+                
+                <img v-if="!SettingsPage" id="settingsIcone" :src="settingIcone" alt="checkmark"> 
+                <div v-if="!SettingsPage" class="IconeLabel">
+                    Settings </div>
+                <img v-if="SettingsPage" id="settingsIcone" :src="backicone" alt="checkmark"> 
+                <div v-if="SettingsPage" class="IconeLabel">
+                    Back to game </div>
+            </router-link>
+            </div>
+           
+        </div>
     </Teleport>
 </template>
 
 <script setup lang="ts">
 import {ref} from 'vue';
+import settingIcone from '../assets/setting.png';
+import backicone from '../assets/back.png';
+
 
 const isOpen = ref(false);
-
+const SettingsPage =ref(false);
 const toggleModal = () => {
     isOpen.value = !isOpen.value;
+}
+const loadSetting =() => {
+
+    isOpen.value=!isOpen.value;
+    SettingsPage.value=!SettingsPage.value;
 }
 
 </script>
 
 <style scoped>
+    #settingsIcone{
+        width: 15%;
+    }
+    .navbarIcones{
+        text-align: center;
+        margin-top: 100%;
+    }
     #overlay {
         position: absolute;
         top: 0;
@@ -81,7 +109,7 @@ const toggleModal = () => {
         transition-duration: 300ms;
 
         background-color: #DAB0B0;
-        width: 70vw;
+        max-width: 250px;
         height: 100vh;
 
         transform: translateX(-500px);

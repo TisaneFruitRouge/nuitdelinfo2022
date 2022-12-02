@@ -87,9 +87,9 @@ function update(new_tick: number) {
   }
 
   if (background) {
-
-    background.style.left = `calc(7.5vw + ${card_pos.x}px)`
-    background.style.top = `calc(20vw + ${card_pos.y}px)`
+    if(!isOpen)
+      background.style.left = `calc(7.5% + ${card_pos.x}px)`
+    background.style.top = `calc(20vh + ${card_pos.y}px)`
     background.style.rotate = card_pos.x / 20 + 'deg'
   }
 
@@ -176,7 +176,7 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
 
 
 .background-card.open {
-    max-width: 100vw;
+    max-width: 100%;
     max-height: 100vh;
 
     width: 100vw;
@@ -186,6 +186,7 @@ addEventListener('mouseup', function(e:MouseEvent) { end_drag()})
     border-bottom-right-radius: 0;
 
     left: 0;
+    right: 0;
     top: 15vh;
 }
 
