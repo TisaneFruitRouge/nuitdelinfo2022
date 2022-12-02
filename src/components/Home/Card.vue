@@ -1,6 +1,5 @@
 <template>
   <div id="background-center-cards" class="background-card">
-
   </div>
 </template>
 
@@ -17,6 +16,7 @@ let card_pos: {
   y : number,
 } = {x: 0, y: 0};
 
+
 let is_dragging: boolean = false;
 
 function lerp (start:number, end:number, amt:number) {
@@ -29,23 +29,32 @@ function update(new_tick: number) {
   const delta_time = (new_tick - lastTick) / 1000.0
   lastTick = new_tick
 
-  if (!background)
-    background = document.getElementById("background-center-cards") as HTMLElement
+  if (!background) {
+    let card_container = document.getElementById("background-center-cards") as HTMLElement
+    background = card_container.children[4] as HTMLElement
+  }
 
+
+  let window_width = window.outerWidth
 
   if (!is_dragging) {
-    card_pos.x = lerp(card_pos.x, 0, delta_time * 10)
-    card_pos.y = lerp(card_pos.y, 0, delta_time * 10)
 
-
-
+    if (card_pos.x < -window_width / 4) {
+      card_pos.x = lerp(card_pos.x, -window_width * 2, delta_time * 5)
+    }
+    else if (card_pos.x > window_width / 4) {
+      card_pos.x = lerp(card_pos.x, window_width * 2, delta_time * 5)
+    }
+    else {
+      card_pos.x = lerp(card_pos.x, 0, delta_time * 5)
+    }
+    card_pos.y = lerp(card_pos.y, 0, delta_time * 5)
   }
 
   if (background) {
     background.style.left = card_pos.x + 'px'
     background.style.top = card_pos.y + 'px'
     background.style.rotate = card_pos.x / 20 + 'deg'
-
   }
 
   window.requestAnimationFrame(update);
