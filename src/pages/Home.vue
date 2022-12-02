@@ -5,7 +5,14 @@
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
             <div class="background-card background-center-card"></div>
-            <card :name="'Sweet Banana'" :description="'fck me'" :age="21" :image="''" @on-match="on_match"/>
+            <card 
+                v-for="(profile, index) in profiles" 
+                :name="profile.name" 
+                :description="profile.description" 
+                :image="''"
+                :matched="profile.matched"
+                :swiped="profile.swiped "
+                :key="index"/>
         </div>
 
         <div id="background-top-cards">
@@ -19,23 +26,35 @@
         </div>
 
         <div id="buttons">
-            <AcceptButton />
-            <RejectButton />
+            <AcceptButton :on-click="matchOk"/>
+            <RejectButton :on-click="matchNotOk"/>
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
+
 import AcceptButton from "../components/Home/AcceptButton.vue";
 import RejectButton from "../components/Home/RejectButton.vue";
-
 import Card from "../components/Home/Card.vue";
+import { reactive } from "vue";
+import {storeToRefs} from 'pinia';
 
+import { useProfileStore } from '../stores/profiles';
+import { proxyPrint } from "../utils";
 
-function on_match(value: boolean) {
+const store = useProfileStore();
+
+const { profiles, profilesSwiped } = storeToRefs(store);
+const { matchProfile } = store;
+
+const matchOk = () => {
+    matchProfile(true);
 }
 
-
+const matchNotOk = () => {
+    matchProfile(false);
+}
 
 </script>
 
